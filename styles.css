@@ -1,0 +1,140 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Buttons */
+.btn,
+.trigger-btn {
+    background: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.4s ease, transform 0.3s ease;
+}
+
+.btn:hover,
+.trigger-btn:hover {
+    background: #0056b3;
+    transform: scale(1.1) rotate(2deg);
+}
+
+/* Part 1: Fade/Slide box */
+.box {
+    width: 150px;
+    height: 150px;
+    background: #ff6f61;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeSlide 2s ease forwards;
+}
+
+@keyframes fadeSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Part 1: Continuous pulsing circle */
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #4caf50;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+/* Part 3: Animate Box (triggered via JS) */
+.animate-box {
+    width: 120px;
+    height: 120px;
+    background: #ff9800;
+    margin-top: 1rem;
+}
+
+.animate-box.active {
+    animation: spin 1s linear 3;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal.show {
+    display: flex;
+    animation: fadeIn 0.5s forwards;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    transform: translateY(-50px);
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
